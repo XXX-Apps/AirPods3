@@ -88,11 +88,11 @@ final class SettingsController: BaseController {
     }
     
     private func openHowToUse() {
-
+        presentCrossDissolve(vc: HowToUseController())
     }
     
     private func openFaq() {
-
+        present(vc: FaqController())
     }
     
     private func openPrivacy() {

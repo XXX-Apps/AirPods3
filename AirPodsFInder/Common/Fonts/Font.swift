@@ -5,7 +5,7 @@ struct Font {
         case light = "Sofia Pro Light"
         case regular = "Sofia Pro Regular"
         case medium = "Sofia Pro Medium"
-        case semiBold = "Sofia Pro Semi Bold"
+        case semiBold = "Sofia Pro SemiBold"
         case bold = "Sofia Pro Bold"
         case black = "Sofia Pro Black"
     }
