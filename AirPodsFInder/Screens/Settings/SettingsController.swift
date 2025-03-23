@@ -3,6 +3,7 @@ import SafariServices
 import SnapKit
 import RxSwift
 import PremiumManager
+import Utilities
 
 final class SettingsController: BaseController {
     
@@ -83,7 +84,7 @@ final class SettingsController: BaseController {
     }
     
     private func openChangeIcon() {
-//        presentCrossDisolve(vc: IconsController())
+        presentCrossDissolve(vc: IconsController())
     }
     
     private func openHowToUse() {
