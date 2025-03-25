@@ -168,8 +168,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/reganomika/ShadowImageButton",
       "state" : {
-        "revision" : "d65d111ca07f3fd9ddf8f6c2f39a685f794832aa",
-        "version" : "1.1.0"
+        "revision" : "34763fe7d112958752c0c42f082e18a8a55a6f9f",
+        "version" : "1.1.3"
       }
     },
     {
