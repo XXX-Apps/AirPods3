@@ -24,6 +24,9 @@ enum DeviceType {
     case airPodsMax
     case airPods
     case airTag
+    case appleWatch
+    case iPhone
+    case other
     
     var image: UIImage? {
         switch self {
@@ -33,6 +36,12 @@ enum DeviceType {
             return UIImage(named: "pods")
         case .airTag:
             return UIImage(named: "tag")
+        case .iPhone:
+            return UIImage(named: "iPhone")
+        case .appleWatch:
+            return UIImage(named: "watch")
+        default:
+            return nil
         }
     }
 }

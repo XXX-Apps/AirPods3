@@ -83,7 +83,7 @@ final class HomeController: BaseController {
         setupUI()
         setupSubscriptions()
         
-        viewModel.reloadData(isBluetoothOn: false)
+        viewModel.viewDidLoad()
     }
     
     private func setupUI() {
@@ -122,6 +122,16 @@ final class HomeController: BaseController {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         presentCrossDissolve(vc: HowToUseController())
     }
+    
+    @objc private func openAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
+    }
 }
 
 extension HomeController: UITableViewDataSource, UITableViewDelegate {
@@ -142,6 +152,14 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
                 fatalError("Could not dequeue BluetoothCell")
             }
             cell.confgiure(isOn: isOn)
+            cell.onAction = { [weak self] in
+                guard let self else { return }
+                if self.viewModel.bluetoothManager.isBluetoothEnabled() {
+                    self.present(vc: SearchController())
+                } else {
+                    self.openAppSettings()
+                }
+            }
             return cell
         case .emptyHistory:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyHistoryCell.identifier) as? EmptyHistoryCell else {
@@ -163,7 +181,7 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         let cellType = viewModel.sections[indexPath.section].cells[indexPath.row]
         
         switch cellType {
-        case .history(let model):
+        case .history:
             present(vc: SearchController())
         default:
             break

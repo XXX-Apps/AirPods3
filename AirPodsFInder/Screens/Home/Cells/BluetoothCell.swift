@@ -5,6 +5,8 @@ import Utilities
 
 final class BluetoothCell: UITableViewCell {
     
+    var onAction: (() -> Void)?
+    
     static let identifier = "BluetoothCell"
     
     private lazy var customBackgroundView: UIView = {
@@ -58,7 +60,7 @@ final class BluetoothCell: UITableViewCell {
         return label
     }()
     
-    private let bottomButton: ShadowImageButton = {
+    private lazy var bottomButton: ShadowImageButton = {
         let button = ShadowImageButton()
         button.configure(
             buttonConfig: .init(
@@ -82,7 +84,9 @@ final class BluetoothCell: UITableViewCell {
             )
         )
         button.backgroundColor = .white
-        button.isUserInteractionEnabled = false
+        button.action = { [weak self] in
+            self?.onAction?()
+        }
         return button
     }()
     

@@ -49,7 +49,6 @@ final class DeviceCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .font(weight: .bold, size: 18)
-        label.numberOfLines = 0
         label.text = "No devices found".localized
         return label
     }()
@@ -115,7 +114,7 @@ final class DeviceCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(17)
             make.left.equalToSuperview().inset(74)
-            make.right.equalToSuperview().inset(60)
+            make.right.equalToSuperview().inset(110)
         }
         
         subtitleLabel.snp.makeConstraints { make in
@@ -131,157 +130,38 @@ final class DeviceCell: UITableViewCell {
         }
     }
     
-    func configure(model: DeviceModel) {
-        
+    func configure(model: BluetoothDevice, distance: Double) {
+                        
         titleLabel.text = model.name
-        
-        subtitleLabel.text = String(format: "%.1f m", model.distance)
-        
+        subtitleLabel.text = String(format: "%.1f m", distance)
         centerImageView.image = model.type.image
         
-        updateSignalStrength(model.distance)
-        
-        progressView.progress = 0.6
+        updateSignalStrength(distance)
+        updateProgressView(distance: distance)
     }
     
+    private func updateProgressView(distance: Double) {
+        let maxDistance: Double = 10.0
+        let minDistance: Double = 0.1
+        
+        let progress: Double
+        if distance <= minDistance {
+            progress = 1.0
+        } else if distance >= maxDistance {
+            progress = 0.1
+        } else {
+            progress = 1.0 - (distance - minDistance) / (maxDistance - minDistance)
+        }
+        
+        self.progressView.progress = Float(progress)
+    }
+
     func updateSignalStrength(_ distance: Double) {
         switch distance {
-        case 0:
-            signalImageView.image = .signal4
-        case 1:
-            signalImageView.image = .signal4
-        case 2:
-            signalImageView.image = .signal4
-        default:
-            signalImageView.image = .signal4
+        case ..<1:    signalImageView.image = .signal4
+        case 1..<3:   signalImageView.image = .signal3
+        case 3..<7:   signalImageView.image = .signal2
+        default:      signalImageView.image = .signal1
         }
-    }
-}
-
-class CircularProgressView: UIView {
-    
-    fileprivate var progressLayer = CAShapeLayer()
-    fileprivate var trackLayer = CAShapeLayer()
-    fileprivate var didConfigureLabel = false
-    fileprivate var rounded: Bool
-    fileprivate var filled: Bool
-    
-    fileprivate let lineWidth: CGFloat?
-
-    var timeToFill = 3.43
-    
-    var progressColor = UIColor.white {
-        didSet {
-            progressLayer.strokeColor = progressColor.cgColor
-        }
-    }
-    
-    var trackColor = UIColor.white {
-        didSet {
-            trackLayer.strokeColor = trackColor.cgColor
-        }
-    }
-    
-    var progress: Float {
-        didSet {
-            var pathMoved = progress - oldValue
-            if pathMoved < 0 {
-                pathMoved = 0 - pathMoved
-            }
-            setProgress(duration: timeToFill * Double(pathMoved), to: progress)
-        }
-    }
-
-    fileprivate func createProgressView() {
-        
-        self.backgroundColor = .clear
-        self.layer.cornerRadius = frame.size.width / 2
-        let circularPath = UIBezierPath(arcCenter: center, radius: frame.width / 2, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)
-        trackLayer.fillColor = UIColor.blue.cgColor
-        
-        trackLayer.path = circularPath.cgPath
-        trackLayer.fillColor = .none
-        trackLayer.strokeColor = trackColor.cgColor
-        if filled {
-            trackLayer.lineCap = .butt
-            trackLayer.lineWidth = frame.width
-        } else {
-            trackLayer.lineWidth = lineWidth!
-        }
-        trackLayer.strokeEnd = 1
-        layer.addSublayer(trackLayer)
-        
-        progressLayer.path = circularPath.cgPath
-        progressLayer.fillColor = .none
-        progressLayer.strokeColor = progressColor.cgColor
-        if filled {
-            progressLayer.lineCap = .butt
-            progressLayer.lineWidth = frame.width
-        } else {
-            progressLayer.lineWidth = lineWidth!
-        }
-        progressLayer.strokeEnd = 0
-        if rounded {
-            progressLayer.lineCap = .round
-        }
-        
-        layer.addSublayer(progressLayer)
-    }
-    
-    func trackColorToProgressColor() -> Void {
-        trackColor = progressColor
-        trackColor = UIColor(red: progressColor.cgColor.components![0], green: progressColor.cgColor.components![1], blue: progressColor.cgColor.components![2], alpha: 0.2)
-    }
-    
-    func setProgress(duration: TimeInterval = 3, to newProgress: Float) -> Void {
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = duration
-        
-        animation.fromValue = progressLayer.strokeEnd
-        animation.toValue = newProgress
-        
-        progressLayer.strokeEnd = CGFloat(newProgress)
-        
-        progressLayer.add(animation, forKey: "animationProgress")
-    }
-    
-    override init(frame: CGRect) {
-        progress = 0
-        rounded = true
-        filled = false
-        lineWidth = 15
-        super.init(frame: frame)
-        filled = false
-        createProgressView()
-    }
-    
-    required init?(coder: NSCoder) {
-        progress = 0
-        rounded = true
-        filled = false
-        lineWidth = 15
-        super.init(coder: coder)
-        createProgressView()
-    }
-    
-    init(frame: CGRect, lineWidth: CGFloat?, rounded: Bool) {
-        
-        progress = 0
-        
-        if lineWidth == nil {
-            self.filled = true
-            self.rounded = false
-        } else {
-            if rounded{
-                self.rounded = true
-            } else {
-                self.rounded = false
-            }
-            self.filled = false
-        }
-        self.lineWidth = lineWidth
-        
-        super.init(frame: frame)
-        createProgressView()
     }
 }

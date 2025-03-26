@@ -2,16 +2,35 @@ import Foundation
 
 final class HomeViewModel {
     
+    let bluetoothManager = BluetoothPermissionManager.shared
+        
     var sections: [HomeSection] = []
     
     var onUpdate: (() -> Void)?
     
-    func reloadData(isBluetoothOn: Bool) {
+    func viewDidLoad() {
+        requestBluetoothAccess()
+    }
+    
+    private func requestBluetoothAccess() {
+        bluetoothManager.requestBluetoothAccess { [weak self] granted in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                if granted {
+                    self.reloadData()
+                } else {
+                    self.reloadData()
+                }
+            }
+        }
+    }
+    
+    func reloadData() {
         sections.removeAll()
         sections = [
             .init(
                 title: nil,
-                cells: [.bluetooth(isOn: isBluetoothOn)]
+                cells: [.bluetooth(isOn: bluetoothManager.isBluetoothEnabled())]
             )
         ]
         

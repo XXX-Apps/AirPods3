@@ -66,7 +66,7 @@ final class SearchController: BaseController {
                 )
             )
         )
-        button.backgroundColor = .white.withAlphaComponent(0.22)
+        button.backgroundColor = .init(hex: "4F86F2")
         button.action = { [weak self] in
             self?.openFAQ()
         }
@@ -84,7 +84,19 @@ final class SearchController: BaseController {
         setupUI()
         setupSubscriptions()
         
-        viewModel.reloadData()
+        viewModel.prepareCells()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.startScanning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewModel.stopScanning()
     }
     
     private func setupUI() {
@@ -111,7 +123,9 @@ final class SearchController: BaseController {
     
     private func setupSubscriptions() {
         viewModel.onUpdate = { [weak self] in
-            self?.tableView.reloadData()
+            guard let self else { return }
+            self.bottomButton.isHidden = self.viewModel.cells.count > 1
+            self.tableView.reloadData()
         }
     }
     
@@ -145,21 +159,14 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DeviceCell.identifier) as? DeviceCell else {
                 fatalError("Could not dequeue DeviceCell")
             }
-            cell.configure(model: model)
+            cell.configure(model: model, distance: viewModel.calculateDistance(for: model))
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        let cellType = viewModel.cells[indexPath.row]
-        
-//        switch cellType {
-//        case .history(let model):
-//            break
-//        default:
-//            break
-//        }
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
