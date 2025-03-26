@@ -15,7 +15,7 @@ final class HomeViewModel {
             )
         ]
         
-        var historyCells: [HomeCellType] = [
+        let historyCells: [HomeCellType] = [
             .history(model: .init(name: "AirTag", date: Date(), type: .airTag)),
             .history(model: .init(name: "AirTag", date: Date(), type: .airTag)),
             .history(model: .init(name: "AirTag", date: Date(), type: .airPodsMax)),

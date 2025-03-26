@@ -139,19 +139,19 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         switch cellType {
         case .bluetooth(let isOn):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BluetoothCell.identifier) as? BluetoothCell else {
-                fatalError("Could not dequeue SettingsPremiumCell")
+                fatalError("Could not dequeue BluetoothCell")
             }
             cell.confgiure(isOn: isOn)
             return cell
         case .emptyHistory:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyHistoryCell.identifier) as? EmptyHistoryCell else {
-                fatalError("Could not dequeue SettingsPremiumCell")
+                fatalError("Could not dequeue EmptyHistoryCell")
             }
        
             return cell
         case .history(let model):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCell.identifier) as? HistoryCell else {
-                fatalError("Could not dequeue SettingsPremiumCell")
+                fatalError("Could not dequeue HistoryCell")
             }
             cell.configure(model: model)
             return cell
@@ -164,7 +164,7 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         
         switch cellType {
         case .history(let model):
-            break
+            present(vc: SearchController())
         default:
             break
         }
