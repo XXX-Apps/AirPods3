@@ -93,14 +93,26 @@ protocol BluetoothManagerDelegate: AnyObject {
     func didLoseDevice(_ device: BluetoothDevice)
 }
 
-struct BluetoothDevice {
+class BluetoothDevice {
+    internal init(peripheral: CBPeripheral, isConnected: Bool, lastSeen: Date, type: DeviceType, batteryLevel: Int? = nil, name: String, rssi: Double, distance: Double? = nil) {
+        self.peripheral = peripheral
+        self.isConnected = isConnected
+        self.lastSeen = lastSeen
+        self.type = type
+        self.batteryLevel = batteryLevel
+        self.name = name
+        self.rssi = rssi
+        self.distance = distance
+    }
+    
     let peripheral: CBPeripheral
     var isConnected: Bool
     var lastSeen: Date
     var type: DeviceType
     var batteryLevel: Int?
     let name: String
-    let rssi: Double
+    var rssi: Double
+    var distance: Double?
 }
 
 extension BluetoothManager {

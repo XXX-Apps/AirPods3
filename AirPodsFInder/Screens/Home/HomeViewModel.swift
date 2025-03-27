@@ -34,17 +34,15 @@ final class HomeViewModel {
             )
         ]
         
-        let historyCells: [HomeCellType] = [
-            .history(model: .init(name: "AirTag", date: Date(), type: .airTag)),
-            .history(model: .init(name: "AirTag", date: Date(), type: .airTag)),
-            .history(model: .init(name: "AirTag", date: Date(), type: .airPodsMax)),
-            .history(model: .init(name: "AirTag", date: Date(), type: .airTag)),
-            .history(model: .init(name: "AirTag", date: Date(), type: .airPods))
-        ]
+        var cells: [HomeCellType] = []
+        
+        for model in Storage.shared.getDeviceHistory() {
+            cells.append(.history(model: model))
+        }
         
         sections.append(.init(
             title: "History".localized,
-            cells: historyCells
+            cells: cells.isEmpty ? [.emptyHistory] : cells
         ))
         
         onUpdate?()

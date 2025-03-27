@@ -84,6 +84,11 @@ final class HomeController: BaseController {
         setupSubscriptions()
         
         viewModel.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: .init("updateHistory"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
@@ -131,6 +136,10 @@ final class HomeController: BaseController {
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl)
         }
+    }
+    
+    @objc private func update() {
+        viewModel.reloadData()
     }
 }
 
@@ -181,8 +190,8 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         let cellType = viewModel.sections[indexPath.section].cells[indexPath.row]
         
         switch cellType {
-        case .history:
-            present(vc: SearchController())
+        case .history(let model):
+            presentCrossDissolve(vc: DistanceController(model: model))
         default:
             break
         }

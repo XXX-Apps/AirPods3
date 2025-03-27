@@ -110,14 +110,14 @@ final class HistoryCell: UITableViewCell {
     
     func configure(model: HistoryModel) {
         
-        titleLabel.text = model.name
+        titleLabel.text = model.deviceName
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.mm.yyyy"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         
         subtitleLabel.text = dateFormatter.string(from: model.date)
         
-        centerImageView.image = model.type.image
+        centerImageView.image = model.deviceType.image
     }
 }
 

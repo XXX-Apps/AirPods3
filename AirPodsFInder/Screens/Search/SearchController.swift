@@ -84,7 +84,7 @@ final class SearchController: BaseController {
         setupUI()
         setupSubscriptions()
         
-        viewModel.prepareCells()
+        viewModel.startScanning()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,14 +159,30 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DeviceCell.identifier) as? DeviceCell else {
                 fatalError("Could not dequeue DeviceCell")
             }
-            cell.configure(model: model, distance: viewModel.calculateDistance(for: model))
+            cell.configure(model: model, distance: model.distance)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-
+        let cellType = viewModel.cells[indexPath.row]
+        
+        switch cellType {
+        case .device(let device):
+            presentCrossDissolve(
+                vc: DistanceController(
+                    model: .init(
+                        deviceName: device.name,
+                        deviceType: device.type,
+                        date: Date(),
+                        deviceIdentifier: device.peripheral.identifier
+                    )
+                )
+            )
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

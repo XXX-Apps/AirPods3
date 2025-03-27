@@ -8,18 +8,12 @@ enum HomeCellType {
     case history(model: HistoryModel)
 }
 
-struct HistoryModel {
-    let name: String
-    let date: Date
-    let type: DeviceType
-}
-
 struct HomeSection {
     var title: String?
     var cells: [HomeCellType]
 }
 
-enum DeviceType {
+enum DeviceType: Codable {
     
     case airPodsMax
     case airPods
