@@ -6,12 +6,10 @@
 	<string>Light</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Sofia Pro Black Az.otf</string>
-		<string>Sofia Pro Bold Az.otf</string>
-		<string>Sofia Pro Light Az.otf</string>
-		<string>Sofia Pro Medium Az.otf</string>
-		<string>Sofia Pro Regular Az.otf</string>
-		<string>Sofia Pro Semi Bold Az.otf</string>
+		<string>Hellix-Black.ttf</string>
+		<string>Hellix-Bold.ttf</string>
+		<string>Hellix-Medium.ttf</string>
+		<string>Hellix-SemiBold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

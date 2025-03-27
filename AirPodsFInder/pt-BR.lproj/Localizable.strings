@@ -22,11 +22,11 @@
 "How it functions?" = "Como funciona?";
 "The app uses Bluetooth signals to estimate the distance between your phone and your AirPods. The closer you get, the stronger the signal, helping you track them down." = "O app usa sinais Bluetooth para estimar a distância entre seu telefone e seus AirPods. Quanto mais perto você chega, mais forte fica o sinal, ajudando você a encontrá-los.";
 "Can I find AirPods if they are in the case?" = "Posso encontrar os AirPods\nse estiverem no estojo?";
-"Não, os AirPods só emitem sinal Bluetooth quando estão fora do estojo. Se estiverem dentro, você pode precisar verificar o último local conhecido onde estavam conectados." = "Não, os AirPods só emitem sinal Bluetooth quando estão fora do estojo. Se estiverem dentro, você pode precisar verificar o último local conhecido onde estavam conectados.";
+"No, AirPods only emit a Bluetooth signal when they are out of the case. If they are inside, you may need to check the last known location where they were connected." = "Não, os AirPods só emitem sinal Bluetooth quando estão fora do estojo. Se estiverem dentro, você pode precisar verificar o último local conhecido onde estavam conectados.";
 "Will this app work if my AirPods are lost outdoors?" = "Este app funcionará\nse eu perder meus AirPods ao ar livre?";
-"Se estiverem dentro do alcance Bluetooth, sim. Mas se estiverem muito longe, o app não os detectará, e você precisará confiar no último local conhecido." = "Se estiverem dentro do alcance Bluetooth, sim. Mas se estiverem muito longe, o app não os detectará, e você precisará confiar no último local conhecido.";
+"The displayed percentage may fluctuate due to the connection type and potential obstacles between you and your device." = "Se estiverem dentro do alcance Bluetooth, sim. Mas se estiverem muito longe, o app não os detectará, e você precisará confiar no último local conhecido.";
 "Why is my device not appearing?" = "Por que meu dispositivo\nnão aparece?";
-"O percentual exibido pode variar devido ao tipo de conexão e possíveis obstáculos entre você e seu dispositivo." = "O percentual exibido pode variar devido ao tipo de conexão e possíveis obstáculos entre você e seu dispositivo.";
+"The displayed percentage may fluctuate due to the connection type and potential obstacles between you and your device." = "O percentual exibido pode variar devido ao tipo de conexão e possíveis obstáculos entre você e seu dispositivo.";
 "Need assistance?" = "Precisa de ajuda?";
 "Bluetooth is active" = "Bluetooth ativo";
 "Turn on Bluetooth" = "Ativar Bluetooth";

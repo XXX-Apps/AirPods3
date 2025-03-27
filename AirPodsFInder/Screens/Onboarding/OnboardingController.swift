@@ -45,7 +45,13 @@ class OnboardingController: UIViewController {
             ),
             backgroundImageConfig: .init(
                 image: .gradient,
-                cornerRadius: 16
+                cornerRadius: 16,
+                shadowConfig: .init(
+                    color: .init(hex: "0077FF"),
+                    opacity: 0.44,
+                    offset: .init(width: 0, height: 10.5),
+                    radius: 18
+                )
             )
         )
         button.action = { [weak self] in
@@ -95,7 +101,7 @@ class OnboardingController: UIViewController {
         view.addSubview(shadowImageView)
         
         let attributedString = NSMutableAttributedString(attributedString: model.title.attributedString(
-            font: .font(weight: .bold, size: 32),
+            font: .font(weight: .bold, size: UIScreen.isBigDevice ? 34 : 32),
             aligment: .center,
             color: .init(hex: "#181818"),
             lineSpacing: 5,

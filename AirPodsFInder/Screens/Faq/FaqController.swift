@@ -11,7 +11,7 @@ final class FaqController: BaseController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "FAQ".localized
-        label.font = .font(weight: .black, size: 25)
+        label.font = .font(weight: .bold, size: 25)
         return label
     }()
     

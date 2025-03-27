@@ -38,9 +38,13 @@ final class SettingsPremiumCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .font(weight: .bold, size: 26)
-        label.textColor = .white
-        label.text = "AirPods finder PRO".localized
+        label.attributedText = "AirPods finder PRO".localized.localized.attributedString(
+            font: .font(weight: .bold, size: 26),
+            aligment: .left,
+            color: .white,
+            lineSpacing: 5,
+            maxHeight: 50
+        )
         label.numberOfLines = 0
         return label
     }()
@@ -126,7 +130,7 @@ final class SettingsPremiumCell: UITableViewCell {
         
         subtitleLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(22)
-            make.top.equalTo(titleLabel.snp.bottom).offset(3)
+            make.top.equalTo(titleLabel.snp.bottom).offset(7)
         }
         
         bottomButton.snp.makeConstraints { make in

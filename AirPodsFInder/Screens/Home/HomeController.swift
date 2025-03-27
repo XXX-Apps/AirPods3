@@ -11,7 +11,7 @@ final class HomeController: BaseController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Finder Airpods".localized
-        label.font = .font(weight: .black, size: 32)
+        label.font = .font(weight: .bold, size: 32)
         return label
     }()
     
@@ -20,6 +20,14 @@ final class HomeController: BaseController {
         view.setImage(.settings, for: .normal)
         view.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         return view
+    }()
+    
+    private let rightImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = .chevronLeft
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = false
+        return imageView
     }()
     
     private let shadowImageView: UIImageView = {
@@ -97,7 +105,9 @@ final class HomeController: BaseController {
     private func setupUI() {
         
         view.addSubviews(tableView, shadowImageView, bottomButton)
-                
+        
+        bottomButton.addSubviews(rightImageView)
+        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)
             make.left.right.bottom.equalToSuperview()
@@ -112,6 +122,12 @@ final class HomeController: BaseController {
             $0.left.right.equalToSuperview().inset(20)
             $0.height.equalTo(65)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        rightImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(24)
+            make.right.equalToSuperview().inset(24)
         }
     }
     

@@ -14,7 +14,7 @@ final class SettingsController: BaseController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Settings".localized
-        label.font = .font(weight: .black, size: 25)
+        label.font = .font(weight: .bold, size: 25)
         return label
     }()
     
@@ -57,6 +57,10 @@ final class SettingsController: BaseController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.height.equalTo(30)
         }
     }
     
@@ -161,7 +165,7 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
         
         switch cellType {
         case .premium:
-            return 236
+            return 226
         case .settings:
             return 95
         }

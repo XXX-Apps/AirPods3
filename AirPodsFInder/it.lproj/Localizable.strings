@@ -22,7 +22,7 @@
 "How it functions?" = "Come funziona?";
 "The app uses Bluetooth signals to estimate the distance between your phone and your AirPods. The closer you get, the stronger the signal, helping you track them down." = "L'app utilizza i segnali Bluetooth per stimare la distanza tra il telefono e gli AirPods. Più ti avvicini, più il segnale diventa forte, aiutandoti a trovarli.";
 "Can I find AirPods if they are in the case?" = "Posso trovare gli AirPods\nse sono nell'astuccio?";
-"No, AirPods emettono un segnale Bluetooth solo quando sono fuori dall'astuccio. Se sono dentro, potresti dover controllare l'ultima posizione nota in cui erano connessi." = "No, gli AirPods emettono un segnale Bluetooth solo quando sono fuori dall'astuccio. Se sono dentro, potresti dover controllare l'ultima posizione nota in cui erano connessi.";
+"No, AirPods only emit a Bluetooth signal when they are out of the case. If they are inside, you may need to check the last known location where they were connected." = "No, gli AirPods emettono un segnale Bluetooth solo quando sono fuori dall'astuccio. Se sono dentro, potresti dover controllare l'ultima posizione nota in cui erano connessi.";
 "Will this app work if my AirPods are lost outdoors?" = "Questa app funziona\nse gli AirPods sono persi all'aperto?";
 "If they are within Bluetooth range, yes. But if they are too far away, the app won’t detect them, and you may need to rely on their last known location." = "Se sono nel raggio Bluetooth, sì. Ma se sono troppo lontani, l'app non li rileverà e potresti dover fare affidamento sull'ultima posizione nota.";
 "Why is my device not appearing?" = "Perché il mio dispositivo\nnon appare?";

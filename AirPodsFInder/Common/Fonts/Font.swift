@@ -2,12 +2,10 @@ import UIKit
 
 struct Font {
     enum Weight: String {
-        case light = "Sofia Pro Light"
-        case regular = "Sofia Pro Regular"
-        case medium = "Sofia Pro Medium"
-        case semiBold = "Sofia Pro SemiBold"
-        case bold = "Sofia Pro Bold"
-        case black = "Sofia Pro Black"
+        case medium = "Hellix-Medium"
+        case semiBold = "Hellix-SemiBold"
+        case bold = "Hellix-Bold"
+        case black = "Hellix-Black"
     }
 
     static func font(weight: Weight, size: CGFloat) -> UIFont {

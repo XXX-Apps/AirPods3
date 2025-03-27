@@ -47,7 +47,13 @@ class Paywall: UIViewController {
             ),
             backgroundImageConfig: .init(
                 image: .gradient,
-                cornerRadius: 16
+                cornerRadius: 16,
+                shadowConfig: .init(
+                    color: .init(hex: "0077FF"),
+                    opacity: 0.44,
+                    offset: .init(width: 0, height: 10.5),
+                    radius: 18
+                )
             )
         )
         button.action = { [weak self] in
@@ -95,13 +101,12 @@ class Paywall: UIViewController {
         view.addSubview(shadowImageView)
         
         let attributedString = NSMutableAttributedString(attributedString: "Unlock premium".localized.attributedString(
-            font: .font(weight: .bold, size: 32),
+            font: .font(weight: .bold, size: UIScreen.isBigDevice ? 34 : 32),
             aligment: .center,
             color: .init(hex: "#181818"),
             lineSpacing: 5,
             maxHeight: 30
         ))
-        
         
         let range = ("Unlock premium".localized as NSString).range(of: "Unlock".localized)
         attributedString.addAttribute(.foregroundColor, value: UIColor.init(hex: "#0163F8"), range: range)

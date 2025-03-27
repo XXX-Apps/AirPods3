@@ -17,6 +17,8 @@ final class SearchController: BaseController {
         return label
     }()
     
+    private var needCellsAnimation = true
+    
     private lazy var closeButton: UIButton = {
         let view = UIButton()
         view.setImage(.grayClose, for: .normal)
@@ -40,7 +42,19 @@ final class SearchController: BaseController {
         tableView.register(DeviceCell.self, forCellReuseIdentifier: DeviceCell.identifier)
         tableView.separatorStyle = .none
         tableView.sectionHeaderTopPadding = 0
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        
+        let cellHeight: CGFloat = 400
+        let visibleCellsCount = 1
+        
+        let topInset = ((view.bounds.height - 30) - cellHeight) / 4
+        
+        tableView.contentInset = UIEdgeInsets(
+            top: max(topInset, 0),
+            left: 0,
+            bottom: 100,
+            right: 0
+        )
+      
         return tableView
     }()
     
@@ -128,7 +142,16 @@ final class SearchController: BaseController {
         viewModel.onUpdate = { [weak self] in
             guard let self else { return }
             self.bottomButton.isHidden = self.viewModel.cells.count > 1
+            
             self.tableView.reloadData()
+            
+            if self.viewModel.cells.count > 1 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.needCellsAnimation = false
+                }
+               
+                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+            }
         }
     }
     
@@ -212,6 +235,26 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
             return viewModel.cells.count == 1 ? 400 : 300
         case .device:
             return 92
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if needCellsAnimation {
+            let delay = 0.1 * Double(indexPath.section + indexPath.row)
+            
+            cell.alpha = 0
+            cell.transform = CGAffineTransform(translationX: 0, y: 20)
+            
+            UIView.animate(
+                withDuration: 0.4,
+                delay: delay,
+                options: .curveEaseInOut,
+                animations: {
+                    cell.alpha = 1
+                    cell.transform = .identity
+                }
+            )
         }
     }
 }

@@ -7,6 +7,13 @@ final class DeviceCell: UITableViewCell {
     
     static let identifier = "DeviceCell"
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        return activityIndicator
+    }()
+    
     private lazy var customBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -22,7 +29,6 @@ final class DeviceCell: UITableViewCell {
     
     private let centerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .empty
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.shadowColor = UIColor.black.cgColor
@@ -86,6 +92,8 @@ final class DeviceCell: UITableViewCell {
         customBackgroundView.addSubview(signalImageView)
         customBackgroundView.addSubview(progressView)
         
+        customBackgroundView.addSubview(activityIndicator)
+        
         progressView.progressColor = .init(hex: "00A6FF")
         progressView.trackColor = .clear
                 
@@ -128,16 +136,24 @@ final class DeviceCell: UITableViewCell {
             make.height.width.equalTo(24)
             make.right.equalToSuperview().inset(24)
         }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(15)
+            make.left.equalToSuperview().inset(74)
+        }
     }
     
     func configure(model: BluetoothDevice, distance: Double?) {
         
         guard var distance = distance else {
             titleLabel.text = model.name
-            subtitleLabel.text = "-"
+            subtitleLabel.text = ""
             centerImageView.image = model.type.image
+           
             return
         }
+        
+        activityIndicator.stopAnimating()
         
         distance = distance < 0 ? 0 : distance
                         

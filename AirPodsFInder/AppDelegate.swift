@@ -7,9 +7,9 @@ import PremiumManager
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        PremiumManager.shared.configure(with: .init(apiKey: Config.apphudKey, debugMode: true))
+        PremiumManager.shared.configure(with: .init(apiKey: Config.apphudKey, debugMode: false))
         PremiumManager.shared.fetchProducts()
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
     
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in }

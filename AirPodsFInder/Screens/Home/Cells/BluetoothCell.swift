@@ -74,7 +74,7 @@ final class BluetoothCell: UITableViewCell {
             ),
             backgroundImageConfig: .init(
                 image: nil,
-                cornerRadius: 10,
+                cornerRadius: 18,
                 shadowConfig: .init(
                     color: .white,
                     opacity: 0.25,
