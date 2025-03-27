@@ -35,7 +35,7 @@ enum DeviceType: Codable {
         case .appleWatch:
             return UIImage(named: "watch")
         default:
-            return nil
+            return UIImage(named: "placeholder")
         }
     }
 }

@@ -6,6 +6,7 @@ import SnapKit
 import CustomBlurEffectView
 import ShadowImageButton
 import Utilities
+import Lottie
 
 final class DistanceController: UIViewController {
     
@@ -21,12 +22,18 @@ final class DistanceController: UIViewController {
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    private let imageView = UIImageView().apply {
-        $0.image = .distance
-        $0.contentMode = .scaleAspectFit
-        $0.clipsToBounds = true
-        $0.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-    }
+    private lazy var animationView: LottieAnimationView = {
+        let path = Bundle.main.path(
+            forResource: "distance",
+            ofType: "json"
+        ) ?? ""
+        let animationView = LottieAnimationView(filePath: path)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 1.0
+        animationView.play()
+        return animationView
+    }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -138,7 +145,7 @@ final class DistanceController: UIViewController {
     private func setupView() {
         view.addSubviews(blurView)
         blurView.addSubviews(contentView)
-        contentView.addSubviews(imageView, titleLabel, subtitleLabel, bottomButton, closeButton, percentLabel)
+        contentView.addSubviews(animationView, titleLabel, subtitleLabel, bottomButton, closeButton, percentLabel)
     }
     
     private func setupConstraints() {
@@ -149,7 +156,7 @@ final class DistanceController: UIViewController {
             $0.height.equalTo(605)
         }
         
-        imageView.snp.makeConstraints {
+        animationView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(102)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(278)
@@ -161,13 +168,13 @@ final class DistanceController: UIViewController {
         }
         
         percentLabel.snp.makeConstraints { make in
-            make.center.equalTo(imageView.snp.center)
+            make.center.equalTo(animationView.snp.center)
         }
         
         subtitleLabel.snp.makeConstraints {
             $0.bottom.equalTo(bottomButton.snp.top)
             $0.left.right.equalToSuperview().inset(22)
-            $0.top.equalTo(imageView.snp.bottom)
+            $0.top.equalTo(animationView.snp.bottom)
         }
         
         bottomButton.snp.makeConstraints {

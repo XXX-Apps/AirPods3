@@ -15,7 +15,6 @@
 		34C499D02D90447E002253DB /* PremiumManager in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499CF2D90447E002253DB /* PremiumManager */; };
 		34C499D32D90448D002253DB /* StorageManager in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499D22D90448D002253DB /* StorageManager */; };
 		34C499D62D9044B1002253DB /* CustomBlurEffectView in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499D52D9044B1002253DB /* CustomBlurEffectView */; };
-		34C49A852D904938002253DB /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = 34C49A842D904938002253DB /* Utilities */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +51,6 @@
 				34C499C12D9043AC002253DB /* SnapKit in Frameworks */,
 				34C499D02D90447E002253DB /* PremiumManager in Frameworks */,
 				34C499CA2D904444002253DB /* CustomNavigationView in Frameworks */,
-				34C49A852D904938002253DB /* Utilities in Frameworks */,
 				34C499D62D9044B1002253DB /* CustomBlurEffectView in Frameworks */,
 				34C499CD2D904453002253DB /* ShadowImageButton in Frameworks */,
 				34C499D32D90448D002253DB /* StorageManager in Frameworks */,
@@ -107,7 +105,6 @@
 				34C499CF2D90447E002253DB /* PremiumManager */,
 				34C499D22D90448D002253DB /* StorageManager */,
 				34C499D52D9044B1002253DB /* CustomBlurEffectView */,
-				34C49A842D904938002253DB /* Utilities */,
 			);
 			productName = AirPodsFInder;
 			productReference = 34C4992A2D901144002253DB /* AirPodsFInder.app */;
@@ -146,7 +143,6 @@
 				34C499CE2D90447E002253DB /* XCRemoteSwiftPackageReference "PremiumManager" */,
 				34C499D12D90448D002253DB /* XCRemoteSwiftPackageReference "StorageManager" */,
 				34C499D42D9044B1002253DB /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */,
-				34C49A832D904938002253DB /* XCRemoteSwiftPackageReference "Utilities" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 34C4992B2D901144002253DB /* Products */;
@@ -454,14 +450,6 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		34C49A832D904938002253DB /* XCRemoteSwiftPackageReference "Utilities" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reganomika/Utilities";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -504,11 +492,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 34C499D42D9044B1002253DB /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */;
 			productName = CustomBlurEffectView;
-		};
-		34C49A842D904938002253DB /* Utilities */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34C49A832D904938002253DB /* XCRemoteSwiftPackageReference "Utilities" */;
-			productName = Utilities;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

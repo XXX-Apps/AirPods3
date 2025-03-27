@@ -1,5 +1,5 @@
 {
-  "originHash" : "fefa9a57bd1bc6d39dad04d79148d6ae809094f6663e5dd466e23b3029c6221a",
+  "originHash" : "b4871e604c39604ba773b39130d132b24150d17f239cc851ef750a9924c5a825",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -197,15 +197,6 @@
       "state" : {
         "revision" : "d72aed98f8253ec1aa9ea1141e28150f408cf17f",
         "version" : "1.29.0"
-      }
-    },
-    {
-      "identity" : "utilities",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/reganomika/Utilities",
-      "state" : {
-        "revision" : "50b894b32a17c85e5f09c53707fcc6db3588fac4",
-        "version" : "1.0.1"
       }
     }
   ],
