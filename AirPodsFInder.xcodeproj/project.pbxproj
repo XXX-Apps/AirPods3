@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34C499C12D9043AC002253DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499C02D9043AC002253DB /* SnapKit */; };
-		34C499C42D904408002253DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499C32D904408002253DB /* Lottie */; };
-		34C499C72D904436002253DB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499C62D904436002253DB /* FirebaseCrashlytics */; };
-		34C499CA2D904444002253DB /* CustomNavigationView in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499C92D904444002253DB /* CustomNavigationView */; };
-		34C499CD2D904453002253DB /* ShadowImageButton in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499CC2D904453002253DB /* ShadowImageButton */; };
-		34C499D02D90447E002253DB /* PremiumManager in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499CF2D90447E002253DB /* PremiumManager */; };
-		34C499D32D90448D002253DB /* StorageManager in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499D22D90448D002253DB /* StorageManager */; };
-		34C499D62D9044B1002253DB /* CustomBlurEffectView in Frameworks */ = {isa = PBXBuildFile; productRef = 34C499D52D9044B1002253DB /* CustomBlurEffectView */; };
+		34C525752D9557F600C3ED2D /* CustomBlurEffectView in Frameworks */ = {isa = PBXBuildFile; productRef = 34C525742D9557F600C3ED2D /* CustomBlurEffectView */; };
+		34C525782D9557FD00C3ED2D /* StorageManager in Frameworks */ = {isa = PBXBuildFile; productRef = 34C525772D9557FD00C3ED2D /* StorageManager */; };
+		34C5257B2D95581C00C3ED2D /* PremiumManager in Frameworks */ = {isa = PBXBuildFile; productRef = 34C5257A2D95581C00C3ED2D /* PremiumManager */; };
+		34C5257E2D95582400C3ED2D /* ShadowImageButton in Frameworks */ = {isa = PBXBuildFile; productRef = 34C5257D2D95582400C3ED2D /* ShadowImageButton */; };
+		34C525812D95584400C3ED2D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 34C525802D95584400C3ED2D /* FirebaseCrashlytics */; };
+		34CBBC962D9558B900587F3E /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = 34CBBC952D9558B900587F3E /* Utilities */; };
+		34CBBC992D9558C200587F3E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34CBBC982D9558C200587F3E /* SnapKit */; };
+		34CBBC9C2D9558E200587F3E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 34CBBC9B2D9558E200587F3E /* Lottie */; };
+		34CBBC9F2D95591A00587F3E /* CustomNavigationView in Frameworks */ = {isa = PBXBuildFile; productRef = 34CBBC9E2D95591A00587F3E /* CustomNavigationView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,14 +48,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C499C72D904436002253DB /* FirebaseCrashlytics in Frameworks */,
-				34C499C12D9043AC002253DB /* SnapKit in Frameworks */,
-				34C499D02D90447E002253DB /* PremiumManager in Frameworks */,
-				34C499CA2D904444002253DB /* CustomNavigationView in Frameworks */,
-				34C499D62D9044B1002253DB /* CustomBlurEffectView in Frameworks */,
-				34C499CD2D904453002253DB /* ShadowImageButton in Frameworks */,
-				34C499D32D90448D002253DB /* StorageManager in Frameworks */,
-				34C499C42D904408002253DB /* Lottie in Frameworks */,
+				34C5257B2D95581C00C3ED2D /* PremiumManager in Frameworks */,
+				34CBBC9F2D95591A00587F3E /* CustomNavigationView in Frameworks */,
+				34CBBC962D9558B900587F3E /* Utilities in Frameworks */,
+				34C525782D9557FD00C3ED2D /* StorageManager in Frameworks */,
+				34CBBC992D9558C200587F3E /* SnapKit in Frameworks */,
+				34C525752D9557F600C3ED2D /* CustomBlurEffectView in Frameworks */,
+				34C525812D95584400C3ED2D /* FirebaseCrashlytics in Frameworks */,
+				34C5257E2D95582400C3ED2D /* ShadowImageButton in Frameworks */,
+				34CBBC9C2D9558E200587F3E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,14 +99,15 @@
 			);
 			name = AirPodsFInder;
 			packageProductDependencies = (
-				34C499C02D9043AC002253DB /* SnapKit */,
-				34C499C32D904408002253DB /* Lottie */,
-				34C499C62D904436002253DB /* FirebaseCrashlytics */,
-				34C499C92D904444002253DB /* CustomNavigationView */,
-				34C499CC2D904453002253DB /* ShadowImageButton */,
-				34C499CF2D90447E002253DB /* PremiumManager */,
-				34C499D22D90448D002253DB /* StorageManager */,
-				34C499D52D9044B1002253DB /* CustomBlurEffectView */,
+				34C525742D9557F600C3ED2D /* CustomBlurEffectView */,
+				34C525772D9557FD00C3ED2D /* StorageManager */,
+				34C5257A2D95581C00C3ED2D /* PremiumManager */,
+				34C5257D2D95582400C3ED2D /* ShadowImageButton */,
+				34C525802D95584400C3ED2D /* FirebaseCrashlytics */,
+				34CBBC952D9558B900587F3E /* Utilities */,
+				34CBBC982D9558C200587F3E /* SnapKit */,
+				34CBBC9B2D9558E200587F3E /* Lottie */,
+				34CBBC9E2D95591A00587F3E /* CustomNavigationView */,
 			);
 			productName = AirPodsFInder;
 			productReference = 34C4992A2D901144002253DB /* AirPodsFInder.app */;
@@ -131,18 +134,28 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				"fr-CA",
+				it,
+				de,
+				"pt-BR",
+				"pt-PT",
+				es,
+				"es-419",
+				"es-US",
 			);
 			mainGroup = 34C499212D901144002253DB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				34C499BF2D9043AC002253DB /* XCRemoteSwiftPackageReference "SnapKit" */,
-				34C499C22D904408002253DB /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				34C499C52D904436002253DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				34C499C82D904444002253DB /* XCRemoteSwiftPackageReference "CustomNavigationView" */,
-				34C499CB2D904453002253DB /* XCRemoteSwiftPackageReference "ShadowImageButton" */,
-				34C499CE2D90447E002253DB /* XCRemoteSwiftPackageReference "PremiumManager" */,
-				34C499D12D90448D002253DB /* XCRemoteSwiftPackageReference "StorageManager" */,
-				34C499D42D9044B1002253DB /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */,
+				34C525732D9557F600C3ED2D /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */,
+				34C525762D9557FD00C3ED2D /* XCRemoteSwiftPackageReference "StorageManager" */,
+				34C525792D95581C00C3ED2D /* XCRemoteSwiftPackageReference "PremiumManager" */,
+				34C5257C2D95582400C3ED2D /* XCRemoteSwiftPackageReference "ShadowImageButton" */,
+				34C5257F2D95584400C3ED2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				34CBBC942D9558B900587F3E /* XCRemoteSwiftPackageReference "Utilities" */,
+				34CBBC972D9558C200587F3E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				34CBBC9A2D9558E200587F3E /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				34CBBC9D2D95591A00587F3E /* XCRemoteSwiftPackageReference "CustomNavigationView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 34C4992B2D901144002253DB /* Products */;
@@ -248,6 +261,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -311,6 +325,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -386,63 +401,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		34C499BF2D9043AC002253DB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		34C499C22D904408002253DB /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.1;
-			};
-		};
-		34C499C52D904436002253DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.10.0;
-			};
-		};
-		34C499C82D904444002253DB /* XCRemoteSwiftPackageReference "CustomNavigationView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reganomika/CustomNavigationView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		34C499CB2D904453002253DB /* XCRemoteSwiftPackageReference "ShadowImageButton" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reganomika/ShadowImageButton";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.3;
-			};
-		};
-		34C499CE2D90447E002253DB /* XCRemoteSwiftPackageReference "PremiumManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reganomika/PremiumManager";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		34C499D12D90448D002253DB /* XCRemoteSwiftPackageReference "StorageManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reganomika/StorageManager";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		34C499D42D9044B1002253DB /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */ = {
+		34C525732D9557F600C3ED2D /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/perfectdim/CustomBlurEffectView";
 			requirement = {
@@ -450,48 +409,117 @@
 				minimumVersion = 0.0.3;
 			};
 		};
+		34C525762D9557FD00C3ED2D /* XCRemoteSwiftPackageReference "StorageManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reganomika/StorageManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		34C525792D95581C00C3ED2D /* XCRemoteSwiftPackageReference "PremiumManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reganomika/PremiumManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+		34C5257C2D95582400C3ED2D /* XCRemoteSwiftPackageReference "ShadowImageButton" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reganomika/ShadowImageButton";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
+		34C5257F2D95584400C3ED2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.10.0;
+			};
+		};
+		34CBBC942D9558B900587F3E /* XCRemoteSwiftPackageReference "Utilities" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reganomika/Utilities";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		34CBBC972D9558C200587F3E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		34CBBC9A2D9558E200587F3E /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+		34CBBC9D2D95591A00587F3E /* XCRemoteSwiftPackageReference "CustomNavigationView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reganomika/CustomNavigationView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		34C499C02D9043AC002253DB /* SnapKit */ = {
+		34C525742D9557F600C3ED2D /* CustomBlurEffectView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 34C499BF2D9043AC002253DB /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
+			package = 34C525732D9557F600C3ED2D /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */;
+			productName = CustomBlurEffectView;
 		};
-		34C499C32D904408002253DB /* Lottie */ = {
+		34C525772D9557FD00C3ED2D /* StorageManager */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 34C499C22D904408002253DB /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
-		34C499C62D904436002253DB /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34C499C52D904436002253DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		34C499C92D904444002253DB /* CustomNavigationView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34C499C82D904444002253DB /* XCRemoteSwiftPackageReference "CustomNavigationView" */;
-			productName = CustomNavigationView;
-		};
-		34C499CC2D904453002253DB /* ShadowImageButton */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34C499CB2D904453002253DB /* XCRemoteSwiftPackageReference "ShadowImageButton" */;
-			productName = ShadowImageButton;
-		};
-		34C499CF2D90447E002253DB /* PremiumManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34C499CE2D90447E002253DB /* XCRemoteSwiftPackageReference "PremiumManager" */;
-			productName = PremiumManager;
-		};
-		34C499D22D90448D002253DB /* StorageManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 34C499D12D90448D002253DB /* XCRemoteSwiftPackageReference "StorageManager" */;
+			package = 34C525762D9557FD00C3ED2D /* XCRemoteSwiftPackageReference "StorageManager" */;
 			productName = StorageManager;
 		};
-		34C499D52D9044B1002253DB /* CustomBlurEffectView */ = {
+		34C5257A2D95581C00C3ED2D /* PremiumManager */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 34C499D42D9044B1002253DB /* XCRemoteSwiftPackageReference "CustomBlurEffectView" */;
-			productName = CustomBlurEffectView;
+			package = 34C525792D95581C00C3ED2D /* XCRemoteSwiftPackageReference "PremiumManager" */;
+			productName = PremiumManager;
+		};
+		34C5257D2D95582400C3ED2D /* ShadowImageButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34C5257C2D95582400C3ED2D /* XCRemoteSwiftPackageReference "ShadowImageButton" */;
+			productName = ShadowImageButton;
+		};
+		34C525802D95584400C3ED2D /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34C5257F2D95584400C3ED2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		34CBBC952D9558B900587F3E /* Utilities */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CBBC942D9558B900587F3E /* XCRemoteSwiftPackageReference "Utilities" */;
+			productName = Utilities;
+		};
+		34CBBC982D9558C200587F3E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CBBC972D9558C200587F3E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		34CBBC9B2D9558E200587F3E /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CBBC9A2D9558E200587F3E /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		34CBBC9E2D95591A00587F3E /* CustomNavigationView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CBBC9D2D95591A00587F3E /* XCRemoteSwiftPackageReference "CustomNavigationView" */;
+			productName = CustomNavigationView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

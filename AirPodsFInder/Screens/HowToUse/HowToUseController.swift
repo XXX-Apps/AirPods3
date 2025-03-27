@@ -95,7 +95,6 @@ final class HowToUseController: UIViewController {
     }
     
     private func setupView() {
-        Storage.shared.isFeedbackShown = true
         
         view.addSubviews(blurView)
         blurView.addSubviews(contentView)

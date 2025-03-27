@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 import Utilities
 import ShadowImageButton
+import PremiumManager
 
 final class HomeController: BaseController {
     
@@ -74,6 +75,8 @@ final class HomeController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Storage.shared.isOnboardingShown = true
         
         configurNavigation(
             leftView: titleLabel,
@@ -191,6 +194,11 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         
         switch cellType {
         case .history(let model):
+            
+            guard PremiumManager.shared.isPremium.value else {
+                present(vc: Paywall(isFromOnboarding: false))
+                return
+            }
             presentCrossDissolve(vc: DistanceController(model: model))
         default:
             break

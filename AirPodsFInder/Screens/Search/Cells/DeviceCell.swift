@@ -132,12 +132,14 @@ final class DeviceCell: UITableViewCell {
     
     func configure(model: BluetoothDevice, distance: Double?) {
         
-        guard let distance = distance else {
+        guard var distance = distance else {
             titleLabel.text = model.name
             subtitleLabel.text = "-"
             centerImageView.image = model.type.image
             return
         }
+        
+        distance = distance < 0 ? 0 : distance
                         
         titleLabel.text = model.name
         subtitleLabel.text = String(format: "%.1f m", distance)

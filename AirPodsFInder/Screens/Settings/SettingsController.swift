@@ -34,7 +34,7 @@ final class SettingsController: BaseController {
         tableView.register(SettingsPremiumCell.self, forCellReuseIdentifier: SettingsPremiumCell.identifier)
         tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.identifier)
         tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 100, right: 0)
         return tableView
     }()
     
@@ -55,7 +55,7 @@ final class SettingsController: BaseController {
         view.addSubviews(tableView)
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(topView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
     }
@@ -80,7 +80,7 @@ final class SettingsController: BaseController {
     }
     
     private func openPaywall() {
-//        present(PaywallManager.shared.getPaywall(), animated: true)
+        present(vc: Paywall(isFromOnboarding: false))
     }
     
     private func openChangeIcon() {

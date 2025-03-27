@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(

@@ -1,14 +1,39 @@
 import UIKit
+import Utilities
 
 class OnboardingCoordinator {
     
     private let window: UIWindow
     private var currentIndex = 0
-    private let models: [OnboardingModel]
+    private let models: [OnboardingModel] = [
+        OnboardingModel(
+            image: UIImage(named: "onboarding_0"),
+            title: "Locate your lost device in seconds".localized,
+            higlitedText: "Locate".localized,
+            rating: false
+        ),
+        OnboardingModel(
+            image: UIImage(named: "onboarding_1"),
+            title: "Select a device to locate".localized,
+            higlitedText: "Select".localized,
+            rating: true
+        ),
+        OnboardingModel(
+            image: UIImage(named: "onboarding_2"),
+            title: "Top choice for users".localized,
+            higlitedText: "Top choice".localized,
+            rating: false
+        ),
+        OnboardingModel(
+            image: UIImage(named: "onboarding_3"),
+            title: "Locate devices effortlessly".localized,
+            higlitedText: "Locate2".localized,
+            rating: false
+        )
+    ]
     
-    init(window: UIWindow, models: [OnboardingModel]) {
+    init(window: UIWindow) {
         self.window = window
-        self.models = models
     }
     
     func start() {
@@ -34,8 +59,8 @@ class OnboardingCoordinator {
     }
     
     private func transitionToPaywall() {
-//        let vc = PaywallManager.shared.getPaywall(isFromOnboarding: true)
-//        window.rootViewController = vc
-//        window.makeKeyAndVisible()
+        let vc = Paywall(isFromOnboarding: true)
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
     }
 }

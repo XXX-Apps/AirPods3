@@ -115,7 +115,7 @@ final class SettingsPremiumCell: UITableViewCell {
         
         customBackgroundView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
-            make.top.equalToSuperview().inset(28)
+            make.top.equalToSuperview().inset(10)
             make.bottom.equalToSuperview().inset(26)
         }
         

@@ -1,3 +1,4 @@
+
 import UIKit
 import StoreKit
 import SafariServices
@@ -7,7 +8,7 @@ import ShadowImageButton
 import PremiumManager
 import Utilities
 
-class OnboardingController: UIViewController {
+class Paywall: UIViewController {
     
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -27,6 +28,7 @@ class OnboardingController: UIViewController {
     
     private let imageView = CustomImageView()
     private let titleLabel = UILabel()
+    private let subtitleLabel = UILabel()
     private let bottomStackView = UIStackView()
     
     private let disposeBag = DisposeBag()
@@ -54,12 +56,10 @@ class OnboardingController: UIViewController {
         return button
     }()
     
-    private weak var coordinator: OnboardingCoordinator?
-    private let model: OnboardingModel
+    private let isFromOnboarding: Bool
     
-    init(model: OnboardingModel, coordinator: OnboardingCoordinator) {
-        self.model = model
-        self.coordinator = coordinator
+    init(isFromOnboarding: Bool) {
+        self.isFromOnboarding = isFromOnboarding
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -87,14 +87,14 @@ class OnboardingController: UIViewController {
         
         view.addSubview(backgroundImageView)
         
-        imageView.image = model.image
+        imageView.image = .paywall
         imageView.aspectFill = false
         imageView.verticalAlignment = .bottom
         view.addSubview(imageView)
         
         view.addSubview(shadowImageView)
         
-        let attributedString = NSMutableAttributedString(attributedString: model.title.attributedString(
+        let attributedString = NSMutableAttributedString(attributedString: "Unlock premium".localized.attributedString(
             font: .font(weight: .bold, size: 32),
             aligment: .center,
             color: .init(hex: "#181818"),
@@ -103,12 +103,28 @@ class OnboardingController: UIViewController {
         ))
         
         
-        let range = (model.title as NSString).range(of: model.higlitedText)
+        let range = ("Unlock premium".localized as NSString).range(of: "Unlock".localized)
         attributedString.addAttribute(.foregroundColor, value: UIColor.init(hex: "#0163F8"), range: range)
         
         titleLabel.attributedText = attributedString
         titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
+        
+        let product = PremiumManager.shared.defaultProduct.value
+        
+        if let priceNumber = product?.priceNumber,
+           let currency = product?.currency,
+           let duration = product?.duration {
+            let price = "\(currency)\(String(format: "%.2f", priceNumber))/\(duration.rawValue.localized)"
+            
+            subtitleLabel.text = String(format: "Enjoy unlimited searches for just".localized, price)
+        }
+ 
+        subtitleLabel.font = .font(weight: .medium, size: 16)
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.textColor = .init(hex: "#9DA0B3")
+        view.addSubview(subtitleLabel)
         
         view.addSubview(nextButton)
         
@@ -119,14 +135,17 @@ class OnboardingController: UIViewController {
         let privacyButton = createBottomButton(title: "Privacy".localized)
         let restoreButton = createBottomButton(title: "Restore".localized)
         let termsButton = createBottomButton(title: "Terms".localized)
+        let notNowButton = createBottomButton(title: "Not now".localized)
         
         privacyButton.addTarget(self, action: #selector(openPrivacy), for: .touchUpInside)
         restoreButton.addTarget(self, action: #selector(restore), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(openTerms), for: .touchUpInside)
+        notNowButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         
         bottomStackView.addArrangedSubview(privacyButton)
         bottomStackView.addArrangedSubview(restoreButton)
         bottomStackView.addArrangedSubview(termsButton)
+        bottomStackView.addArrangedSubview(notNowButton)
         
         view.addSubview(bottomStackView)
     }
@@ -134,13 +153,18 @@ class OnboardingController: UIViewController {
     private func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(UIScreen.isLittleDevice ? 157 : 187)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(157)
             make.bottom.equalTo(nextButton.snp.top)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
-            make.leading.trailing.equalToSuperview().inset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        subtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).inset(-10)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         nextButton.snp.makeConstraints { make in
@@ -179,10 +203,7 @@ class OnboardingController: UIViewController {
     @objc private func nextButtonTapped() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         
-        if model.rating {
-            SKStoreReviewController.requestReview()
-        }
-        coordinator?.goToNextScreen()
+        PremiumManager.shared.purchase(product: PremiumManager.shared.defaultProduct.value)
     }
     
     @objc private func openPrivacy() {
@@ -208,6 +229,11 @@ class OnboardingController: UIViewController {
     
     @objc private func close() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        replaceRootViewController(with: UINavigationController(rootViewController: HomeController()))
+        
+        if isFromOnboarding {
+            replaceRootViewController(with: UINavigationController(rootViewController: HomeController()))
+        } else {
+            dismiss()
+        }
     }
 }

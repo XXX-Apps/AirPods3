@@ -1,4 +1,5 @@
 import UIKit
+import PremiumManager
 import SnapKit
 import Utilities
 import ShadowImageButton
@@ -91,6 +92,8 @@ final class SearchController: BaseController {
         super.viewWillAppear(animated)
         
         viewModel.startScanning()
+        
+        checkFeedback()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -138,6 +141,16 @@ final class SearchController: BaseController {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         present(vc: FaqController())
     }
+    
+    private func checkFeedback() {
+        Storage.shared.userActionCounter += 1
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if !Storage.shared.isFeedbackShown, Storage.shared.userActionCounter > 4 {
+                UIApplication.topViewController()?.presentCrossDissolve(vc: FeedbackController())
+            }
+        }
+    }
 }
 
 extension SearchController: UITableViewDataSource, UITableViewDelegate {
@@ -170,6 +183,12 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate {
         
         switch cellType {
         case .device(let device):
+            
+            guard PremiumManager.shared.isPremium.value else {
+                present(vc: Paywall(isFromOnboarding: false))
+                return
+            }
+            
             presentCrossDissolve(
                 vc: DistanceController(
                     model: .init(

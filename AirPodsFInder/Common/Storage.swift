@@ -27,7 +27,8 @@ final class Storage {
         static let onboardingShownKey = "onboarding_shown"
         static let feedbackShownKey = "feedback_shown"
         static let deviceHistoryKey = "bluetooth_device_history"
-        static let maxHistoryCount = 50
+        static let userActionCounter = "user_action_counter"
+        static let maxHistoryCount = 500
     }
     
     // MARK: - Public Properties
@@ -39,6 +40,15 @@ final class Storage {
     var isFeedbackShown: Bool {
         get { storageManager.get(forKey: Constants.feedbackShownKey, defaultValue: false) }
         set { storageManager.set(newValue, forKey: Constants.feedbackShownKey) }
+    }
+    
+    var userActionCounter: Int {
+        get {
+            storageManager.get(forKey: Constants.userActionCounter, defaultValue: 0)
+        }
+        set {
+            storageManager.set(newValue, forKey: Constants.userActionCounter)
+        }
     }
     
     // MARK: - Device History
