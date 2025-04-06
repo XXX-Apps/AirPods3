@@ -63,10 +63,13 @@ class OnboardingController: UIViewController {
     private weak var coordinator: OnboardingCoordinator?
     private let model: OnboardingModel
     
-    init(model: OnboardingModel, coordinator: OnboardingCoordinator) {
+    init(model: OnboardingModel, coordinator: OnboardingCoordinator, shadowImage: UIImage = .onboardingShadow1) {
         self.model = model
         self.coordinator = coordinator
+     
         super.init(nibName: nil, bundle: nil)
+        
+        self.shadowImageView.image = shadowImage
     }
     
     required init?(coder: NSCoder) {

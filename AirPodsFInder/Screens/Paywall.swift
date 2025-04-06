@@ -20,7 +20,7 @@ class Paywall: UIViewController {
     
     private lazy var shadowImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .onboardingShadow
+        imageView.image = .onboardingShadow1
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -115,7 +115,7 @@ class Paywall: UIViewController {
         titleLabel.numberOfLines = 0
         view.addSubview(titleLabel)
         
-        let product = PremiumManager.shared.defaultProduct.value
+        let product = PremiumManager.shared.products.value.first
         
         if let priceNumber = product?.priceNumber,
            let currency = product?.currency,

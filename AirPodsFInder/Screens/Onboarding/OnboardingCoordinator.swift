@@ -47,7 +47,7 @@ class OnboardingCoordinator {
         }
         
         let model = models[currentIndex]
-        let viewController = OnboardingController(model: model, coordinator: self)
+        let viewController = OnboardingController(model: model, coordinator: self, shadowImage: currentIndex == 0 ? .onboardingShadow : .onboardingShadow1)
         window.rootViewController = viewController
         window.makeKeyAndVisible()
         
