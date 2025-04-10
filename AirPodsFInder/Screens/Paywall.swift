@@ -208,7 +208,9 @@ class Paywall: UIViewController {
     @objc private func nextButtonTapped() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         
-        PremiumManager.shared.purchase(product: PremiumManager.shared.defaultProduct.value)
+        let product = PremiumManager.shared.products.value.first
+        
+        PremiumManager.shared.purchase(product: product)
     }
     
     @objc private func openPrivacy() {
