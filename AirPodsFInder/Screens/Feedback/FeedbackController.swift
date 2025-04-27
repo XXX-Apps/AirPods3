@@ -150,7 +150,7 @@ final class FeedbackController: UIViewController {
     @objc private func feedbackTapped() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         if let url = URL(string: "itms-apps:itunes.apple.com/us/app/apple-store/id\(Config.appId)3?action=write-review") {
-            present(SFSafariViewController(url: url), animated: true)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }
