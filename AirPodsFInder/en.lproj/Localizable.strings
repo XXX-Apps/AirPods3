@@ -54,7 +54,7 @@
 "Unlock premium" = "Unlock\npremium";
 "Unlock" = "Unlock";
 "Enjoy unlimited searches for just" = "Enjoy unlimited searches for\njust %@";
-"Enjoy unlimited searches free for 3 days, then just" = "Enjoy unlimited searches free for 3 days, then just %@";
+"Enjoy unlimited searches free for 3 days, then just" = "Enjoy unlimited searches free for 3 days,\nthen just %@";
 "week" = "week";
 "month" = "month";
 "year" = "year";
@@ -66,3 +66,4 @@
 "Terms" = "Terms";
 "Continue" = "Continue";
 "Not now" = "Not now";
+"Try for free" = "Try for free";

@@ -37,7 +37,7 @@ class Paywall: UIViewController {
         let button = ShadowImageButton()
         button.configure(
             buttonConfig: .init(
-                title: "Continue".localized,
+                title: "Try for free".localized,
                 font: .font(
                     weight: .bold,
                     size: 18
