@@ -122,7 +122,7 @@ class Paywall: UIViewController {
            let duration = product?.duration {
             let price = "\(currency)\(String(format: "%.2f", priceNumber))/\(duration.rawValue.localized)"
             
-            subtitleLabel.text = String(format: "Enjoy unlimited searches for just".localized, price)
+            subtitleLabel.text = String(format: "Enjoy unlimited searches free for 3 days, then just".localized, price)
         }
  
         subtitleLabel.font = .font(weight: .medium, size: 16)
